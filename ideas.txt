@@ -1,0 +1,6 @@
+* race (human, elf, dwarf, orc, goblin, troll)
+* class (warrior, barbarian, paladin, hunter, mage, warlock)
+* stats (health, stamina, strength, agility, intelligence, magic)
+
+
+
