@@ -1,0 +1,43 @@
+#intro > button, #name > input, #name > button, #classes > button, #classDescription > button {
+  width: 80%;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Header;
+  src: url(fonts/english.ttf);
+}
+#container {
+  font-family: Arial;
+}
+
+/* header */
+#header {
+  padding: 1em;
+}
+
+#headerText {
+  font-family: Header;
+  font-size: 8em;
+  width: 100%;
+}
+
+/* intro */
+#intro, #name, #classes {
+  width: 100%;
+  text-align: center;
+}
+
+#intro > p, #name > p, #classes > p, #classDescription > p {
+  font-size: 1.5em;
+  margin: 1em;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */
