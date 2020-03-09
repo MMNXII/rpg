@@ -1,8 +1,3 @@
-#intro > button, #name > input, #name > button, #classes > button, #classDescription > button {
-  width: 80%;
-  margin: 0 auto;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,34 +5,102 @@
 }
 
 @font-face {
-  font-family: Header;
-  src: url(fonts/english.ttf);
+  font-family: title;
+  src: url(fonts/middledeco.ttf);
 }
+@font-face {
+  font-family: subheader;
+  src: url(fonts/cardinal.ttf);
+}
+@font-face {
+  font-family: button;
+  src: url(fonts/ancient.ttf);
+}
+#titleTxt {
+  font-family: title;
+  color: white;
+}
+
+#introTxt, #enterNameTxt, #classesHeaderTxt, #classesSubHeaderTxt, #classesDescriptionTitle, #classesDescriptionTxt, #enterNameDiv > input {
+  font-family: subheader;
+  color: white;
+  letter-spacing: 0.11em;
+}
+
+button {
+  font-family: button;
+  width: 26%;
+  margin: 0 auto;
+  color: black;
+}
+
+body {
+  background-color: #143600;
+  text-align: center;
+}
+
 #container {
   font-family: Arial;
 }
 
-/* header */
-#header {
+button {
+  font-size: 0.8em;
+}
+
+#title {
   padding: 1em;
-}
-
-#headerText {
-  font-family: Header;
-  font-size: 8em;
-  width: 100%;
-}
-
-/* intro */
-#intro, #name, #classes {
-  width: 100%;
   text-align: center;
 }
 
-#intro > p, #name > p, #classes > p, #classDescription > p {
-  font-size: 1.5em;
+#titleTxt {
+  font-size: 2.5em;
+  width: 100%;
+}
+
+#introDiv > p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.7em;
+}
+
+#introDiv > button {
   margin: 1em;
+}
+
+#enterNameDiv {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#enterNameDiv > button {
+  margin: 0.5em;
+}
+
+#enterNameDiv > input {
+  border-style: outset;
+  border-width: 1px;
+  border-color: #fdfdfd;
+  background-color: #471a00;
+  color: white;
   text-align: center;
+  width: 20%;
+}
+
+#enterNameDiv > input:focus {
+  background-color: #055349;
+}
+
+#introTxt, #enterNameTxt, #classesHeaderTxt, #classesSubHeaderTxt, #classesDescriptionTitle, #classesDescriptionTxt {
+  text-align: center;
+}
+
+#classesSubHeaderTxt, #classesDescriptionTxt {
+  font-size: 0.8em;
+}
+
+#intro > p, #name > p, #classes > .headerText, #classDescription > p {
+  font-size: 1.1em;
+  margin: 1em;
 }
 
 /*# sourceMappingURL=index.css.map */

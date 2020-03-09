@@ -1,9 +1,4 @@
 
-%button {
-    width: 80%;
-    margin: 0 auto;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,41 +6,111 @@
 }
 
 @font-face {
-    font-family: Header;
-    src: url(fonts/english.ttf);
+    font-family: title;
+    src: url(fonts/middledeco.ttf);
+}
+@font-face {
+    font-family: subheader;
+    src: url(fonts/cardinal.ttf);
+}
+@font-face {
+    font-family: button;
+    src: url(fonts/ancient.ttf)
+}
+%title-font {
+    font-family: title;
+    color: rgb(255, 255, 255);
+}
+%subheader-font {
+    font-family: subheader;
+    color: rgb(255, 255, 255);
+    letter-spacing: .11em;
+}
+%button {
+    font-family: button;
+    width: 26%;
+    margin: 0 auto;
+    color: rgb(0, 0, 0);
 }
 
 
+body {
+    background-color: rgb(20, 54, 0);
+    text-align: center;
+}
 #container {
     font-family: Arial;
 }
-
-
-/* header */
-#header {
-    padding: 1em;
-}
-#headerText {
-    font-family: Header;
-    font-size: 8em;
-    width: 100%;
-}
-
-
-
-/* intro */
-#intro, #name, #classes {
-    width: 100%;
-    text-align: center;
-}
-#intro > p, #name > p, #classes > p, #classDescription > p {
-    font-size: 1.5em;
-    margin: 1em;
-    text-align: center;
-}
-#intro > button, #name > input, #name > button, #classes > button, #classDescription > button {
+button {
     @extend %button;
+    font-size: .8em;
 }
+
+
+#title {
+    padding: 1em;
+    text-align: center;
+}
+#titleTxt {
+    @extend %title-font;
+    font-size: 2.5em;
+    width: 100%;
+}
+
+
+
+
+#introDiv > p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.7em;
+}
+#introDiv > button {
+    margin: 1em;
+}
+
+
+#enterNameDiv {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+#enterNameDiv > button {
+    margin: .5em;
+}
+#enterNameDiv > input {
+    @extend %subheader-font;
+    border-style: outset;
+    border-width: 1px;
+    border-color: rgb(253, 253, 253);
+    background-color: rgb(71, 26, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 20%;
+}
+#enterNameDiv > input:focus {
+    background-color: rgb(5, 83, 73);
+}
+
+
+
+
+#introTxt, #enterNameTxt, #classesHeaderTxt, #classesSubHeaderTxt, #classesDescriptionTitle, #classesDescriptionTxt {
+    @extend %subheader-font;
+    text-align: center;
+}
+
+#classesSubHeaderTxt, #classesDescriptionTxt {
+    font-size: .8em;
+}
+
+#intro > p, #name > p, #classes > .headerText, #classDescription > p {
+    font-size: 1.1em;
+    margin: 1em;
+}
+    
+
+
+
 
 
 
