@@ -26,6 +26,15 @@
             })
     };
 
+    removeCurrentClassElements = () => {
+        if (section.id == "classesDescriptionDiv") {
+            section.innerHTML = "";
+        }
+        else if (section.hasChildNodes()) {
+            container.removeChild(section);
+        }
+    }
+
     noAlert = () => {
         alert("Be Gone Then!!");
     }
@@ -33,11 +42,13 @@
 
 
     showNameSection = () => {
-        if (section.hasChildNodes)
+        removeCurrentClassElements();
+
         section = createDiv("enterNameDiv");
 
         var headerTxt = "Very well, what shall thy name be?";
         var headerEl = document.createElement("p");
+            headerEl.className = "subHeadTxt";
             headerEl.id = "enterNameTxt";
             headerEl.textContent = headerTxt;
             section.appendChild(headerEl);
@@ -65,16 +76,19 @@
 
 
     classes = () => {
+        removeCurrentClassElements();
         section = createDiv("classesDiv");
 
         var headerEl = document.createElement("p");
         var headerTxt = `${name}, which class will thy represent?`;
+            headerEl.className = "subHeadTxt";
             headerEl.id = "classesHeaderTxt";
             headerEl.textContent = headerTxt;
             section.appendChild(headerEl);
 
         var subHeaderEl = document.createElement("p");
         var subHeaderTxt = "(click class to preview)";
+            subHeaderEl.className = "subHeadTxt";
             subHeaderEl.id = "classesSubHeaderTxt"
             subHeaderEl.textContent = subHeaderTxt;
             section.appendChild(subHeaderEl);    
@@ -111,18 +125,15 @@
 
     showClass = (classSelection) => {
 
-        removeCurrentClassElements = () => {
-            if (section.hasChildNodes()) {
-                section.innerHTML = "";
-            }
-        }
         addCurrentClassElements = (classHeader, classDescription, classCreateBtn ) => {
             headerEl = document.createElement("p");
             headerEl.id = "classesDescriptionTitle"
+            headerEl.className = "subHeadTxt";
             headerTxt = classHeader;
                 headerEl.textContent = headerTxt;
                 section.appendChild(headerEl);
             descriptionEl = document.createElement("p");
+            descriptionEl.className = "subHeadTxt";
             descriptionEl.id = "classesDescriptionTxt"
             descriptionTxt = classDescription;
                 descriptionEl.textContent = descriptionTxt;
@@ -133,22 +144,22 @@
         
 
         if (classSelection == "warrior") {
-            var description = "Warrior description"
+            var description = "Commonly seen on the front lines of battle, the mighty warrior is skilled in close quarters combat and brute force. Common weapons include two-handed swords, axes, and polearms. The warrior's main attribute is strength."
             removeCurrentClassElements();
             addCurrentClassElements("Warrior", description, ["Select Warrior Class"])
 
         } else if (classSelection == "hunter") {
-            var description = "Hunter description"
+            var description = "Offering a wider skill set than warriors, hunters can attack from distance as well as close quarters. Common weapons include: ranged weapons, one-handed swords and daggers. The hunter's main attribute is agility."
             removeCurrentClassElements();
             addCurrentClassElements("Hunter", description, ["Select Hunter Class"])
 
         } else if (classSelection == "mage") {
-            var description = "Mage description"
+            var description = "Summoning the elements is the mage's specialty. A solely ranged attacker, the mage casts spells of various types to attack, as well as defend. Common spell types include: fire, ice, and illusion. the mage's main attribute is magic."
             removeCurrentClassElements();
             addCurrentClassElements("Mage", description, ["Select Mage Class"])
 
         } else if (classSelection == "priest") {
-            var description = "Priest description"
+            var description = "A follower of a deity and a support spell caster. Priests are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The priest's main attribute is intuition."
             removeCurrentClassElements();
             addCurrentClassElements("Priest", description, ["Select Priest Class"])
         }
@@ -174,6 +185,7 @@
 
         var introTxt = "Welcome adventurer to *. A land of enchantment and intrigue, a great journey awaits thee here...are thoust ready to begin?"
         var introEl = document.createElement("p");
+            introEl.className = "subHeadTxt";
             introEl.id = "introTxt";
             introEl.textContent = introTxt;
             section.appendChild(introEl);
