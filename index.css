@@ -9,11 +9,11 @@
   src: url(fonts/middledeco.ttf);
 }
 @font-face {
-  font-family: subheader;
+  font-family: general;
   src: url(fonts/cardinal.ttf);
 }
 @font-face {
-  font-family: button;
+  font-family: classesTitle;
   src: url(fonts/ancient.ttf);
 }
 #titleTxt {
@@ -21,17 +21,24 @@
   color: white;
 }
 
-#introTxt, #enterNameTxt, #classesHeaderTxt, #classesSubHeaderTxt, #classesDescriptionTitle, #classesDescriptionTxt, #enterNameDiv > input {
-  font-family: subheader;
+input, .subHeadTxt {
+  font-family: general;
+  font-size: 1.7em;
   color: white;
   letter-spacing: 0.11em;
 }
 
-button {
-  font-family: button;
-  width: 26%;
-  margin: 0 auto;
-  color: black;
+#classesDiv button, button {
+  font-family: general;
+  background: linear-gradient(0deg, #d58400 0%, #883400 70%);
+  border-color: #c56900;
+  font-size: 1.2em;
+  color: white;
+}
+
+#classesDescriptionTitle {
+  font-family: classesTitle;
+  font-size: 2em;
 }
 
 body {
@@ -39,44 +46,29 @@ body {
   text-align: center;
 }
 
-#container {
-  font-family: Arial;
-}
-
-button {
-  font-size: 0.8em;
-}
-
-#title {
-  padding: 1em;
-  text-align: center;
+#titleDiv {
+  padding: 3em;
 }
 
 #titleTxt {
   font-size: 2.5em;
-  width: 100%;
 }
 
-#introDiv > p {
-  margin-top: 1em;
+#introDiv p {
   margin-bottom: 1em;
-  font-size: 1.7em;
 }
 
-#introDiv > button {
+button {
   margin: 1em;
+  padding: 0.3em;
 }
 
-#enterNameDiv {
-  margin-top: 2em;
-  margin-bottom: 2em;
+#enterNameDiv p {
+  margin-bottom: 1em;
 }
 
-#enterNameDiv > button {
-  margin: 0.5em;
-}
-
-#enterNameDiv > input {
+input {
+  font-size: 1em;
   border-style: outset;
   border-width: 1px;
   border-color: #fdfdfd;
@@ -84,23 +76,35 @@ button {
   color: white;
   text-align: center;
   width: 20%;
+  padding: 0.1em;
 }
 
-#enterNameDiv > input:focus {
+input:focus {
   background-color: #055349;
 }
 
-#introTxt, #enterNameTxt, #classesHeaderTxt, #classesSubHeaderTxt, #classesDescriptionTitle, #classesDescriptionTxt {
+#classesDiv button {
+  width: fit-content;
+  margin: 0.5em;
+}
+
+#classesDescriptionDiv {
+  margin-top: 1.5em;
   text-align: center;
 }
 
 #classesSubHeaderTxt, #classesDescriptionTxt {
-  font-size: 0.8em;
+  font-size: 1.2em;
 }
 
-#intro > p, #name > p, #classes > .headerText, #classDescription > p {
-  font-size: 1.1em;
-  margin: 1em;
+#classesSubHeaderTxt {
+  margin-bottom: 2em;
+}
+
+#classesDescriptionTxt {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=index.css.map */
