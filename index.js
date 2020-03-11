@@ -159,6 +159,7 @@
             addCurrentClassElements("Warrior", icon, description, ["Select Warrior Class"])
 
         } else if (classSelection == "hunter") {
+            var icon = "images/bow.svg";
             var description = "Offering a wider skill set than warriors, hunters can attack from distance as well as close quarters. Common weapons include: ranged weapons, one-handed swords and daggers. The hunter's main attribute is agility."
             removeCurrentClassElements();
             addCurrentClassElements("Hunter", icon, description, ["Select Hunter Class"])
