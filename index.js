@@ -65,11 +65,14 @@
                 nameBtn.addEventListener("click", enterName = () => {
                     if (nameInput.value == "") {
                         return alert("please enter a name");
-                    }
-                    else {
+                    
+                    } else if (nameInput.value.length < 2 || nameInput.value.length > 10) {
+                        return alert("plesae enter a shorter name");
+                    
+                    } else {
                         name = nameInput.value;
                     }
-                    
+
                     classes();
                 });
     }
@@ -125,16 +128,22 @@
 
     showClass = (classSelection) => {
 
-        addCurrentClassElements = (classHeader, classDescription, classCreateBtn ) => {
+        addCurrentClassElements = (classHeader, classIcon, classDescription, classCreateBtn ) => {
             headerEl = document.createElement("p");
-            headerEl.id = "classesDescriptionTitle"
-            headerEl.className = "subHeadTxt";
+                headerEl.id = "classesDescriptionTitle"
+                headerEl.className = "subHeadTxt";
             headerTxt = classHeader;
                 headerEl.textContent = headerTxt;
                 section.appendChild(headerEl);
+
+            headerIcon = document.createElement("img");
+                headerIcon.src = classIcon;
+                headerIcon.className = "classIcon";
+                section.appendChild(headerIcon);
+
             descriptionEl = document.createElement("p");
-            descriptionEl.className = "subHeadTxt";
-            descriptionEl.id = "classesDescriptionTxt"
+                descriptionEl.id = "classesDescriptionTxt"
+                descriptionEl.className = "subHeadTxt";
             descriptionTxt = classDescription;
                 descriptionEl.textContent = descriptionTxt;
                 section.appendChild(descriptionEl);
@@ -144,24 +153,25 @@
         
 
         if (classSelection == "warrior") {
+            var icon = "images/sword.svg";
             var description = "Commonly seen on the front lines of battle, the mighty warrior is skilled in close quarters combat and brute force. Common weapons include two-handed swords, axes, and polearms. The warrior's main attribute is strength."
             removeCurrentClassElements();
-            addCurrentClassElements("Warrior", description, ["Select Warrior Class"])
+            addCurrentClassElements("Warrior", icon, description, ["Select Warrior Class"])
 
         } else if (classSelection == "hunter") {
             var description = "Offering a wider skill set than warriors, hunters can attack from distance as well as close quarters. Common weapons include: ranged weapons, one-handed swords and daggers. The hunter's main attribute is agility."
             removeCurrentClassElements();
-            addCurrentClassElements("Hunter", description, ["Select Hunter Class"])
+            addCurrentClassElements("Hunter", icon, description, ["Select Hunter Class"])
 
         } else if (classSelection == "mage") {
             var description = "Summoning the elements is the mage's specialty. A solely ranged attacker, the mage casts spells of various types to attack, as well as defend. Common spell types include: fire, ice, and illusion. the mage's main attribute is magic."
             removeCurrentClassElements();
-            addCurrentClassElements("Mage", description, ["Select Mage Class"])
+            addCurrentClassElements("Mage", icon, description, ["Select Mage Class"])
 
         } else if (classSelection == "priest") {
             var description = "A follower of a deity and a support spell caster. Priests are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The priest's main attribute is intuition."
             removeCurrentClassElements();
-            addCurrentClassElements("Priest", description, ["Select Priest Class"])
+            addCurrentClassElements("Priest", icon, description, ["Select Priest Class"])
         }
     }
 

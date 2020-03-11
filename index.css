@@ -9,36 +9,39 @@
   src: url(fonts/middledeco.ttf);
 }
 @font-face {
-  font-family: general;
+  font-family: general-text;
   src: url(fonts/cardinal.ttf);
 }
 @font-face {
   font-family: classesTitle;
-  src: url(fonts/ancient.ttf);
+  src: url(fonts/middle.ttf);
 }
 #titleTxt {
   font-family: title;
+  font-size: 2.5em;
   color: white;
 }
 
-input, .subHeadTxt {
-  font-family: general;
+#enterNameDiv input, .subHeadTxt {
+  font-family: general-text;
   font-size: 1.7em;
   color: white;
   letter-spacing: 0.11em;
 }
 
-#classesDiv button, button {
-  font-family: general;
+#classesDiv button, #enterNameDiv button, #introDiv button {
+  font-family: general-text;
   background: linear-gradient(0deg, #d58400 0%, #883400 70%);
   border-color: #c56900;
   font-size: 1.2em;
   color: white;
+  margin: 0.5em;
+  padding: 0.3em;
 }
 
 #classesDescriptionTitle {
   font-family: classesTitle;
-  font-size: 2em;
+  font-size: 1.4em;
 }
 
 body {
@@ -46,19 +49,25 @@ body {
   text-align: center;
 }
 
-#titleDiv {
-  padding: 3em;
+#container button:hover, #container button:focus {
+  color: #ff8800;
 }
 
-#titleTxt {
-  font-size: 2.5em;
+#sources {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0.5em;
+}
+
+#titleDiv {
+  padding: 3em;
 }
 
 #introDiv p {
   margin-bottom: 1em;
 }
-
-button {
+#introDiv button {
   margin: 1em;
   padding: 0.3em;
 }
@@ -66,9 +75,11 @@ button {
 #enterNameDiv p {
   margin-bottom: 1em;
 }
-
-input {
-  font-size: 1em;
+#enterNameDiv button {
+  margin: 1em;
+}
+#enterNameDiv input {
+  font-size: 1.2em;
   border-style: outset;
   border-width: 1px;
   border-color: #fdfdfd;
@@ -78,14 +89,12 @@ input {
   width: 20%;
   padding: 0.1em;
 }
-
-input:focus {
-  background-color: #055349;
+#enterNameDiv input:focus {
+  background-color: #012c26;
 }
 
 #classesDiv button {
-  width: fit-content;
-  margin: 0.5em;
+  margin-bottom: 1.8em;
 }
 
 #classesDescriptionDiv {
@@ -98,13 +107,25 @@ input:focus {
 }
 
 #classesSubHeaderTxt {
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
+}
+
+#classesDescriptionTitle {
+  display: inline;
+}
+
+.classIcon {
+  vertical-align: bottom;
+  width: 35px;
+  height: 35px;
 }
 
 #classesDescriptionTxt {
   width: 70%;
-  margin: 0 auto;
-  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 /*# sourceMappingURL=index.css.map */

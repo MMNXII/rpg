@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    // border: 1px solid yellow;
 }
 
 @font-face {
@@ -10,33 +11,36 @@
     src: url(fonts/middledeco.ttf);
 }
 @font-face {
-    font-family: general;
+    font-family: general-text;
     src: url(fonts/cardinal.ttf);
 }
 @font-face {
     font-family: classesTitle;
-    src: url(fonts/ancient.ttf)
+    src: url(fonts/middle.ttf)
 }
 %titleFont {
     font-family: title;
+    font-size: 2.5em;
     color: rgb(255, 255, 255);
 }
 %subheaderFont {
-    font-family: general;
+    font-family: general-text;
     font-size: 1.7em;
     color: rgb(255, 255, 255);
     letter-spacing: .11em;
 }
 %button {
-    font-family: general;
+    font-family: general-text;
     background: linear-gradient(0deg, rgba(213,132,0,1) 0%, rgba(136,52,0,1) 70%);
     border-color: rgb(197, 105, 0);
     font-size: 1.2em;
     color: rgb(255, 255, 255);
+    margin: .5em;
+    padding: .3em;
 }
 %classTitleFont {
     font-family: classesTitle;
-    font-size: 2em;
+    font-size: 1.4em;
 }
 
 
@@ -47,6 +51,17 @@ body {
 .subHeadTxt {
     @extend %subheaderFont;
 }
+#container {
+    button:hover, button:focus {
+        color: rgb(255, 136, 0);
+    }   
+}
+#sources {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: .5em;
+}
 
 
 
@@ -56,14 +71,13 @@ body {
 }
 #titleTxt {
     @extend %titleFont;
-    font-size: 2.5em;
 }
 
 
 
 
 
-#introDiv
+#introDiv {
     p {
         margin-bottom: 1em;
     }
@@ -71,20 +85,22 @@ body {
         @extend %button;
         margin: 1em;
         padding: .3em;
+    }
 }
 
 
 
-#enterNameDiv
+#enterNameDiv {
     p {
         margin-bottom: 1em;
     }
     button {
         @extend %button;
+        margin: 1em;
     }
     input {
         @extend %subheaderFont;
-        font-size: 1em;
+        font-size: 1.2em;
         border-style: outset;
         border-width: 1px;
         border-color: rgb(253, 253, 253);
@@ -95,19 +111,18 @@ body {
         padding: .1em;
     }
     input:focus {
-        background-color: rgb(5, 83, 73);
+        background-color: rgb(1, 44, 38);
+    }
 }
 
 
 
-#classesDiv
+#classesDiv {
     button {
         @extend %button;
-        width: fit-content;
-        margin: .5em;
+        margin-bottom: 1.8em;
+    }
 }
-
-
 #classesDescriptionDiv {
     margin-top: 1.5em;
     text-align: center;
@@ -116,16 +131,26 @@ body {
     font-size: 1.2em;
 }
 #classesSubHeaderTxt {
-    margin-bottom: 2em;
+    margin-bottom: .5em;
 }
 #classesDescriptionTitle {
     @extend %classTitleFont;
+    display: inline;
+}
+.classIcon {
+    vertical-align: bottom;
+    width: 35px;
+    height: 35px;
 }
 #classesDescriptionTxt {
     width: 70%;
-    margin: 0 auto;
-    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
+
+
 
 
 
