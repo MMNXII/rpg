@@ -80,6 +80,9 @@ body {
 #introDiv {
     p {
         margin-bottom: 1em;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
     }
     button {
         @extend %button;

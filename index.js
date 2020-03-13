@@ -67,7 +67,7 @@
                         return alert("please enter a name");
                     
                     } else if (nameInput.value.length < 2 || nameInput.value.length > 10) {
-                        return alert("plesae enter a shorter name");
+                        return alert("please enter a shorter name");
                     
                     } else {
                         name = nameInput.value;
@@ -96,12 +96,12 @@
             subHeaderEl.textContent = subHeaderTxt;
             section.appendChild(subHeaderEl);    
 
-        createBtn(["Warrior", "Hunter", "Mage", "Priest"]);
+        createBtn(["Warrior", "Hunter", "Mage", "Cleric"]);
             var classBtns = document.getElementById("classesDiv").getElementsByTagName("button");
                 classBtns[0].id = "warriorBtn";
                 classBtns[1].id = "hunterBtn";
                 classBtns[2].id = "mageBtn";
-                classBtns[3].id = "priestBtn";
+                classBtns[3].id = "clericBtn";
 
             var classSelection;
 
@@ -115,8 +115,8 @@
                 } else if (btn.target.id == "mageBtn") {
                     showClass("mage")
 
-                } else if (btn.target.id == "priestBtn") {
-                    showClass("priest")
+                } else if (btn.target.id == "clericBtn") {
+                    showClass("cleric")
                 }
 
         });
@@ -165,14 +165,16 @@
             addCurrentClassElements("Hunter", icon, description, ["Select Hunter Class"])
 
         } else if (classSelection == "mage") {
+            var icon = "images/orb.svg";
             var description = "Summoning the elements is the mage's specialty. A solely ranged attacker, the mage casts spells of various types to attack, as well as defend. Common spell types include: fire, ice, and illusion. the mage's main attribute is magic."
             removeCurrentClassElements();
             addCurrentClassElements("Mage", icon, description, ["Select Mage Class"])
 
-        } else if (classSelection == "priest") {
-            var description = "A follower of a deity and a support spell caster. Priests are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The priest's main attribute is intuition."
+        } else if (classSelection == "cleric") {
+            var icon = "images/book.svg";
+            var description = "A follower of a deity and a support spell caster. clerics are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The cleric's main attribute is intuition."
             removeCurrentClassElements();
-            addCurrentClassElements("Priest", icon, description, ["Select Priest Class"])
+            addCurrentClassElements("Cleric", icon, description, ["Select cleric Class"])
         }
     }
 
