@@ -174,7 +174,7 @@
             var icon = "images/book.svg";
             var description = "A follower of a deity and a support spell caster. clerics are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The cleric's main attribute is intuition."
             removeCurrentClassElements();
-            addCurrentClassElements("Cleric", icon, description, ["Select cleric Class"])
+            addCurrentClassElements("Cleric", icon, description, ["Select Cleric Class"])
         }
     }
 
