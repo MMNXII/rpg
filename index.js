@@ -39,6 +39,17 @@
         alert("Be Gone Then!!");
     }
 
+    fadeDownAnime = (target) => {
+        var animation = anime({
+            targets: target,
+            duration: 800,
+            easing: "easeInOutSine",
+            translateY: ["-1rem", 0],
+            opacity: [0, 1],
+            direction: "normal"
+        });
+    }
+    
 
 
     showNameSection = () => {
@@ -75,6 +86,8 @@
 
                     classes();
                 });
+
+        fadeDownAnime("#enterNameDiv");                
     }
 
 
@@ -98,14 +111,14 @@
 
         createBtn(["Warrior", "Hunter", "Mage", "Cleric"]);
             var classBtns = document.getElementById("classesDiv").getElementsByTagName("button");
+
                 classBtns[0].id = "warriorBtn";
                 classBtns[1].id = "hunterBtn";
                 classBtns[2].id = "mageBtn";
                 classBtns[3].id = "clericBtn";
 
-            var classSelection;
-
             section.addEventListener("click", selectClass = (btn) => {
+
                 if (btn.target.id == "warriorBtn") {
                     showClass("warrior")
 
@@ -117,13 +130,21 @@
 
                 } else if (btn.target.id == "clericBtn") {
                     showClass("cleric")
-                }
+
+                } else if (btn.target != btn) {
+                    
+                    
+                }                
 
         });
 
         var classesDiv = document.getElementById("classesDiv");
         section = createDiv("classesDescriptionDiv");
         classesDiv.appendChild(section);
+
+        fadeDownAnime("#classesDiv");
+        
+
     };
 
     showClass = (classSelection) => {
@@ -149,6 +170,8 @@
                 section.appendChild(descriptionEl);
 
                 createBtn([classCreateBtn]);
+
+                fadeDownAnime(section);
         }
         
 
@@ -186,6 +209,16 @@
             head.textContent = "Ye Olde RPG";
             head.id = "titleTxt";
             section.appendChild(head);
+
+        var animation = anime({
+            targets: "#titleDiv",
+            duration: 2500,
+            delay: 500,
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+            translateX: ["-3rem", 0],
+            direction: "normal"
+            });
     })();        
 
     
@@ -210,6 +243,15 @@
 
         var introBtnNo = document.getElementById("introDiv").getElementsByTagName("button")[1];
             introBtnNo.addEventListener("click", noAlert);
+
+        var animation = anime({
+            targets: "#introDiv",
+            duration: 1000,
+            delay: 4000,
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+            direction: "normal"
+        });
 
     })();
 
