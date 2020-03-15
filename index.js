@@ -87,7 +87,7 @@
                     classes();
                 });
 
-        fadeDownAnime("#enterNameDiv");                
+        // fadeDownAnime("#enterNameDiv");                
     }
 
 
@@ -142,7 +142,7 @@
         section = createDiv("classesDescriptionDiv");
         classesDiv.appendChild(section);
 
-        fadeDownAnime("#classesDiv");
+        // fadeDownAnime("#classesDiv");
         
 
     };
@@ -160,6 +160,7 @@
             headerIcon = document.createElement("img");
                 headerIcon.src = classIcon;
                 headerIcon.className = "classIcon";
+                headerIcon.id = classHeader.toLowerCase() + "Icon";
                 section.appendChild(headerIcon);
 
             descriptionEl = document.createElement("p");
@@ -169,12 +170,14 @@
                 descriptionEl.textContent = descriptionTxt;
                 section.appendChild(descriptionEl);
 
-                createBtn([classCreateBtn]);
+            createBtn([classCreateBtn]);
 
-                fadeDownAnime(section);
+            var classSelect = document.getElementById("classesDescriptionTxt").nextSibling;
+                classSelect.addEventListener("click", enterClass);
+
+                // fadeDownAnime(section);
         }
         
-
         if (classSelection == "warrior") {
             var icon = "images/sword.svg";
             var description = "Commonly seen on the front lines of battle, the mighty warrior is skilled in close quarters combat and brute force. Common weapons include two-handed swords, axes, and polearms. The warrior's main attribute is strength."
@@ -201,6 +204,50 @@
         }
     }
 
+    enterClass = () => {
+        section.parentNode.remove();
+
+        section = createDiv("classSelect");
+        var headerIcon = document.createElement("img");
+            headerIcon.className = "classIcon";
+            headerIcon.style.width = "70px";
+            headerIcon.style.height = "70px";
+
+        
+        if (headerEl.textContent == "Warrior") {
+            headerIcon.src = "images/sword.svg";
+            section.appendChild(headerIcon);
+
+        } else if (headerEl.textContent == "Hunter") {
+            headerIcon.src = "images/bow.svg";
+            section.appendChild(headerIcon);
+
+        } else if (headerEl.textContent == "Mage") {
+            headerIcon.src = "images/orb.svg";
+            section.appendChild(headerIcon);
+
+        } else if (headerEl.textContent == "Cleric") {
+            headerIcon.src = "images/book.svg";
+            section.appendChild(headerIcon);
+
+        }
+
+
+        fadeDownAnime(headerIcon);
+        var iconRotate = anime({
+            targets: "img",
+            duration: 800,
+            easing: "easeInOutSine",
+            rotate: [0,720],
+            opacity: [0, 1],
+            direction: "normal"
+        })
+
+
+    }
+
+
+
 
     (title = () => {
         section = createDiv("titleDiv");
@@ -210,15 +257,15 @@
             head.id = "titleTxt";
             section.appendChild(head);
 
-        var animation = anime({
-            targets: "#titleDiv",
-            duration: 2500,
-            delay: 500,
-            easing: "easeInOutSine",
-            opacity: [0, 1],
-            translateX: ["-3rem", 0],
-            direction: "normal"
-            });
+        // var animation = anime({
+        //     targets: "#titleDiv",
+        //     duration: 2500,
+        //     delay: 500,
+        //     easing: "easeInOutSine",
+        //     opacity: [0, 1],
+        //     translateX: ["-3rem", 0],
+        //     direction: "normal"
+        // });
     })();        
 
     
@@ -244,14 +291,14 @@
         var introBtnNo = document.getElementById("introDiv").getElementsByTagName("button")[1];
             introBtnNo.addEventListener("click", noAlert);
 
-        var animation = anime({
-            targets: "#introDiv",
-            duration: 1000,
-            delay: 4000,
-            easing: "easeInOutSine",
-            opacity: [0, 1],
-            direction: "normal"
-        });
+        // var animation = anime({
+        //     targets: "#introDiv",
+        //     duration: 1000,
+        //     delay: 4000,
+        //     easing: "easeInOutSine",
+        //     opacity: [0, 1],
+        //     direction: "normal"
+        // });
 
     })();
 
