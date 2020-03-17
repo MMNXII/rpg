@@ -29,7 +29,7 @@
   letter-spacing: 0.11em;
 }
 
-#classesDiv button, #enterNameDiv button, #introDiv button {
+#classesDiv button, #enterNameDiv button, #introDiv button, #sources button {
   font-family: general-text;
   background: linear-gradient(0deg, #d58400 0%, #883400 70%);
   border-color: #c56900;
@@ -58,6 +58,14 @@ body {
   bottom: 0;
   right: 0;
   font-size: 0.5em;
+}
+#sources button {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+#sources div {
+  display: inline;
 }
 
 #titleDiv {
@@ -130,6 +138,23 @@ body {
   margin-right: auto;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+#classDisplayDiv {
+  margin: auto;
+  height: 2px;
+  max-width: 200px;
+  border-radius: 5px;
+  text-align: left;
+  background-color: #00af5277;
+}
+
+.attribute {
+  font-style: bold;
+  color: #ff751f;
+  font-size: 1.2em;
+  padding: 0.3em;
+  margin-left: 1.2em;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -57,11 +57,21 @@ body {
     }   
 }
 #sources {
+    button {
+        @extend %button;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+    div {
+        display: inline;
+    }
     position: fixed;
     bottom: 0;
     right: 0;
     font-size: .5em;
 }
+
 
 
 
@@ -153,6 +163,25 @@ body {
     margin-top: .5em;
     margin-bottom: .5em;
 }
+
+
+#classDisplayDiv {
+    margin: auto;
+    height: 2px;
+    max-width: 200px;
+    border-radius: 5px;
+    text-align: left;
+    background-color: #00af5277;
+}
+.attribute {
+    font-style: bold;
+    color: rgb(255, 117, 31);
+    font-size: 1.2em;
+    padding: .3em;
+    margin-left: 1.2em;
+}
+
+
 
 
 

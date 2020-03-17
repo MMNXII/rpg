@@ -4,6 +4,7 @@
     var section;
     var name;
 
+
     createDiv = (divClassId) => {
         section = document.createElement("div");
         section.id = divClassId;
@@ -166,6 +167,7 @@
             descriptionEl = document.createElement("p");
                 descriptionEl.id = "classesDescriptionTxt"
                 descriptionEl.className = "subHeadTxt";
+                descriptionEl.style.width = "70%";
             descriptionTxt = classDescription;
                 descriptionEl.textContent = descriptionTxt;
                 section.appendChild(descriptionEl);
@@ -204,6 +206,59 @@
         }
     }
 
+    showAttr = (attrValues) => {
+
+        var classDisplay = document.createElement("div");
+            classDisplay.id = "classDisplayDiv";
+            section.appendChild(classDisplay);
+
+        var attrList = document.createElement("ul");
+        var attrNames = ["Health", "Strength", "Agility", "Magic", "Intuition"];
+
+        for (var i = 0; i < 5; i++) {
+            var attrItem = document.createElement("li");
+                attrItem.className = "attribute";
+                attrItem.textContent = `${attrNames[i]}: ${attrValues[i]}`;
+
+                attrList.appendChild(attrItem);
+        }
+
+
+        classDisplay.appendChild(attrList);
+
+        fadeDownAnime(headerIcon);
+            var iconRotate = anime({
+                targets: "img",
+                duration: 1000,
+                easing: "easeInOutSine",
+                rotate: [0,360],
+                // opacity: [0, 1],
+                easing: "easeInOutSine"
+            })
+            var attrdisplayCreateX = anime({
+                targets: "#classDisplayDiv",
+                duration: 1000,
+                width: ["0px", "200px"],
+                easing: "easeInOutSine"
+            })
+            var attrdisplayCreateY = anime({
+                targets: "#classDisplayDiv",
+                height: "183px",
+                duration: 1000,
+                delay: 1000,
+                easing: "easeInOutSine"
+            })
+
+            var attrAppear = anime({
+                targets: ".attribute",
+                delay: 2000,
+                easing: "easeInOutSine",
+                translateY: ["-1rem", 0],
+                opacity: [0, 1],
+            });
+    };
+    
+
     enterClass = () => {
         section.parentNode.remove();
 
@@ -212,41 +267,31 @@
             headerIcon.className = "classIcon";
             headerIcon.style.width = "70px";
             headerIcon.style.height = "70px";
-
+            headerIcon.style.marginBottom = "1em";
         
         if (headerEl.textContent == "Warrior") {
             headerIcon.src = "images/sword.svg";
             section.appendChild(headerIcon);
+            showAttr([60,70,20,10,10]);
 
         } else if (headerEl.textContent == "Hunter") {
             headerIcon.src = "images/bow.svg";
             section.appendChild(headerIcon);
+            showAttr([50,30,70,10,10]);
 
         } else if (headerEl.textContent == "Mage") {
             headerIcon.src = "images/orb.svg";
             section.appendChild(headerIcon);
+            showAttr([40,10,20,70,30]);
 
         } else if (headerEl.textContent == "Cleric") {
             headerIcon.src = "images/book.svg";
             section.appendChild(headerIcon);
+            showAttr([40,10,10,70,40]);
 
         }
 
-
-        fadeDownAnime(headerIcon);
-        var iconRotate = anime({
-            targets: "img",
-            duration: 800,
-            easing: "easeInOutSine",
-            rotate: [0,720],
-            opacity: [0, 1],
-            direction: "normal"
-        })
-
-
     }
-
-
 
 
     (title = () => {
@@ -299,6 +344,20 @@
         //     opacity: [0, 1],
         //     direction: "normal"
         // });
+
+    })();
+
+    (reset = () => {
+        var reset = document.createElement("button");
+            reset.textContent = "reset";
+        var srcsDiv = document.getElementById("sources");
+            srcsDiv.appendChild(reset);
+
+            reset.addEventListener("click", reset = () => {
+                container.innerHTML = "";
+                    title();
+                    intro();
+            });
 
     })();
 
