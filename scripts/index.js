@@ -321,7 +321,7 @@
         
         section = createDiv("introDiv");
 
-        var introTxt = "Welcome adventurer to *. A land of enchantment and intrigue, a great journey awaits thee here...are thoust ready to begin?"
+        var introTxt = "Welcome adventurer to Arpege. A land of enchantment and intrigue, a great journey awaits thee here...are thoust ready to begin?"
         var introEl = document.createElement("p");
             introEl.className = "subHeadTxt";
             introEl.id = "introTxt";

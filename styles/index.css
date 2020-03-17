@@ -6,15 +6,15 @@
 
 @font-face {
   font-family: title;
-  src: url(fonts/middledeco.ttf);
+  src: url(../fonts/middledeco.ttf);
 }
 @font-face {
   font-family: general-text;
-  src: url(fonts/cardinal.ttf);
+  src: url(../fonts/cardinal.ttf);
 }
 @font-face {
   font-family: classesTitle;
-  src: url(fonts/middle.ttf);
+  src: url(../fonts/middle.ttf);
 }
 #titleTxt {
   font-family: title;
