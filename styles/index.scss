@@ -31,10 +31,10 @@
 }
 %button {
     font-family: general-text;
-    background: linear-gradient(0deg, rgba(213,132,0,1) 0%, rgba(136,52,0,1) 70%);
-    border-color: rgb(197, 105, 0);
+    background: linear-gradient(0deg, #d58400 0%, #883400 70%);
+    border-color: #c56900;
     font-size: 1.2em;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     margin: .5em;
     padding: .3em;
 }
@@ -170,19 +170,52 @@ body {
 
 
 #classDisplayDiv {
+    position: relative;
     margin: auto;
     height: 2px;
     max-width: 200px;
     border-radius: 5px;
     text-align: left;
-    background-color: #00af5277;
+    background-color: #005f2c;
+}
+.infoArrow {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 10px;
+}
+.infoArrow:hover {
+    cursor: pointer;
+
 }
 .attribute {
+    font-family: cursive;
     font-style: bold;
     color: rgb(255, 117, 31);
     font-size: 1.2em;
     padding: .3em;
-    margin-left: 1.2em;
+    margin-left: 1.1em;
+}
+.attributeValues {
+    font-style: normal;
+}
+#statDiv {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: .5em;
+    width: 30px;
+    height: 30px;
+    background-color: #458a65;
+    border-radius: 5px;
+    z-index: -1;
+}
+.statDescription {
+    @extend %subheaderFont;
+    font-size: 1em;
+    margin: auto;
+    width: 100%;
 }
 
 

@@ -88,7 +88,7 @@
                     classes();
                 });
 
-        fadeDownAnime("#enterNameDiv");                
+        // fadeDownAnime("#enterNameDiv");                
     }
 
 
@@ -143,7 +143,7 @@
         section = createDiv("classesDescriptionDiv");
         classesDiv.appendChild(section);
 
-        fadeDownAnime("#classesDiv");
+        // fadeDownAnime("#classesDiv");
         
 
     };
@@ -177,7 +177,7 @@
             var classSelect = document.getElementById("classesDescriptionTxt").nextSibling;
                 classSelect.addEventListener("click", enterClass);
 
-                fadeDownAnime(section);
+                // fadeDownAnime(section);
         }
         
         if (classSelection == "warrior") {
@@ -205,59 +205,6 @@
             addCurrentClassElements("Cleric", icon, description, ["Select Cleric Class"])
         }
     }
-
-    showAttr = (attrValues) => {
-
-        var classDisplay = document.createElement("div");
-            classDisplay.id = "classDisplayDiv";
-            section.appendChild(classDisplay);
-
-        var attrList = document.createElement("ul");
-        var attrNames = ["Health", "Strength", "Agility", "Magic", "Intuition"];
-
-        for (var i = 0; i < 5; i++) {
-            var attrItem = document.createElement("li");
-                attrItem.className = "attribute";
-                attrItem.textContent = `${attrNames[i]}: ${attrValues[i]}`;
-
-                attrList.appendChild(attrItem);
-        }
-
-
-        classDisplay.appendChild(attrList);
-
-        fadeDownAnime(headerIcon);
-            var iconRotate = anime({
-                targets: "img",
-                duration: 1000,
-                easing: "easeInOutSine",
-                rotate: [0,360],
-                opacity: [0, 1],
-                easing: "easeInOutSine"
-            })
-            var attrdisplayCreateX = anime({
-                targets: "#classDisplayDiv",
-                duration: 1000,
-                width: ["0px", "200px"],
-                easing: "easeInOutSine"
-            })
-            var attrdisplayCreateY = anime({
-                targets: "#classDisplayDiv",
-                height: "183px",
-                duration: 1000,
-                delay: 1000,
-                easing: "easeInOutSine"
-            })
-
-            var attrAppear = anime({
-                targets: ".attribute",
-                delay: 2000,
-                easing: "easeInOutSine",
-                translateY: ["-1rem", 0],
-                opacity: [0, 1],
-            });
-    };
-    
 
     enterClass = () => {
         section.parentNode.remove();
@@ -293,6 +240,148 @@
 
     }
 
+    showAttr = (attrValues) => {
+
+        var classDisplay = document.createElement("div");
+            classDisplay.id = "classDisplayDiv";
+            section.appendChild(classDisplay);
+
+        var attrList = document.createElement("ul");
+            classDisplay.appendChild(attrList);
+
+        var attrNames = ["Health", "Strength", "Agility", "Magic", "Intuition"];
+
+        for (var i = 0; i < 5; i++) {
+            var attrItem = document.createElement("li");
+                attrItem.className = "attribute";
+                attrItem.style.display = "inline-block";
+                attrItem.textContent = `${attrNames[i]}: ${attrValues[i]}`;
+
+                attrList.appendChild(attrItem);
+
+            var infoArrow = document.createElement("img");
+                infoArrow.className = "infoArrow";
+                infoArrow.id = i;
+                infoArrow.src = "images/pointArrow.svg"
+                attrList.appendChild(infoArrow);
+        }
+
+        (attrDescription = () => {
+            var arrow = document.getElementById("classDisplayDiv").getElementsByClassName("infoArrow");
+            var arrowArray = Array.from(arrow);
+    
+    
+                arrowArray.forEach(arr => {
+                    arr.addEventListener("mouseover", showStats = () => {
+                        var arrAnime = anime({
+                            targets: arr,
+                            duration: 300,
+                            easing: "easeInOutSine",
+                            opacity: [1,0],
+                            direction: "alternate"
+                        })
+                        
+    
+                        statDiv = document.createElement("div");
+                            statDiv.id = "statDiv";
+
+                        statDesc = document.createElement("p");
+                            statDesc.className = "statDescription";
+                        
+                            if (arr.id == "0") {
+                                statDiv.style.bottom = "180px";
+                                statDesc.textContent = "The player's vitality, it's what keeps them alive!";
+
+                            } else if (arr.id == "1") {
+                                statDiv.style.bottom = "150px";
+                                statDesc.textContent = "Enables the player to wield heavier weapons, and fight with fists!";
+
+                            } else if (arr.id == "2") {
+                                statDiv.style.bottom = "115px";
+                                statDesc.textContent = "Quickness and elusiveness, especially useful in battle";
+
+                            } else if (arr.id == "3") {
+                                statDiv.style.bottom = "80px";
+                                statDesc.textContent = "The Magic power within the player, used to cast spells";
+
+                            } else if (arr.id == "4") {
+                                statDiv.style.bottom = "45px";
+                                statDesc.textContent = "Gives the player awareness of their surroundings, provides an advtange in battle";
+
+                            }    
+    
+    
+                        var statDivAnime = anime({
+                            targets: statDiv,
+                            duration: 1000,
+                            width: "200px",
+                            translateX: [0,"12em"],
+                            height: "100px",
+                            direction: "normal",
+
+                        })
+                        var statTxtAnime = anime({
+                            targets: statDesc,
+                            duration: 1000,
+                            delay: 300,
+                            opacity: [0,1]
+                        })
+
+                        section.appendChild(statDiv);
+                        statDiv.appendChild(statDesc);
+                    })
+    
+                    arr.addEventListener("mouseout", removeStats = () => {
+                        section.removeChild(statDiv);
+                    })
+                })
+        })();
+
+
+        
+        
+        fadeDownAnime(headerIcon);
+        
+        var iconRotate = anime({
+            targets: ".classIcon",
+            duration: 1000,
+            easing: "easeInOutSine",
+            rotate: [0,360],
+            opacity: [0, 1],
+            easing: "easeInOutSine"
+        })
+        var arrowAppear = anime({
+            targets: ".infoArrow",
+            duration: 1000,
+            delay: 3000,
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+            easing: "easeInOutSine"
+        })
+        var attrdisplayCreateX = anime({
+            targets: "#classDisplayDiv",
+            duration: 1000,
+            width: ["0px", "170px"],
+            easing: "easeInOutSine"
+        })
+        var attrdisplayCreateY = anime({
+            targets: "#classDisplayDiv",
+            height: "183px",
+            duration: 1000,
+            delay: 1000,
+            easing: "easeInOutSine"
+        })
+        var attrAppear = anime({
+            targets: ".attribute",
+            delay: 2000,
+            easing: "easeInOutSine",
+            translateY: ["-1rem", 0],
+            opacity: [0, 1],
+        });
+    };
+
+
+
 
     (title = () => {
         section = createDiv("titleDiv");
@@ -302,20 +391,17 @@
             head.id = "titleTxt";
             section.appendChild(head);
 
-        var animation = anime({
-            targets: "#titleDiv",
-            duration: 2500,
-            delay: 500,
-            easing: "easeInOutSine",
-            opacity: [0, 1],
-            translateX: ["-3rem", 0],
-            direction: "normal"
-        });
-    })();        
-
-    
-    
-
+        // var animation = anime({
+        //     targets: "#titleDiv",
+        //     duration: 2500,
+        //     delay: 500,
+        //     easing: "easeInOutSine",
+        //     opacity: [0, 1],
+        //     translateX: ["-3rem", 0],
+        //     direction: "normal"
+        // });
+    })();
+        
 
     (intro = () => {
         
@@ -340,14 +426,14 @@
         var introBtnNo = document.getElementById("introDiv").getElementsByTagName("button")[1];
             introBtnNo.addEventListener("click", noAlert);
 
-        var animation = anime({
-            targets: "#introDiv",
-            duration: 1000,
-            delay: 4000,
-            easing: "easeInOutSine",
-            opacity: [0, 1],
-            direction: "normal"
-        });
+        // var animation = anime({
+        //     targets: "#introDiv",
+        //     duration: 1000,
+        //     delay: 4000,
+        //     easing: "easeInOutSine",
+        //     opacity: [0, 1],
+        //     direction: "normal"
+        // });
 
     })();
 
