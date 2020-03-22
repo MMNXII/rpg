@@ -88,7 +88,7 @@
                     classes();
                 });
 
-        // fadeDownAnime("#enterNameDiv");                
+        fadeDownAnime("#enterNameDiv");                
     }
 
 
@@ -143,7 +143,7 @@
         section = createDiv("classesDescriptionDiv");
         classesDiv.appendChild(section);
 
-        // fadeDownAnime("#classesDiv");
+        fadeDownAnime("#classesDiv");
         
 
     };
@@ -177,7 +177,7 @@
             var classSelect = document.getElementById("classesDescriptionTxt").nextSibling;
                 classSelect.addEventListener("click", enterClass);
 
-                // fadeDownAnime(section);
+                fadeDownAnime(section);
         }
         
         if (classSelection == "warrior") {
@@ -391,15 +391,15 @@
             head.id = "titleTxt";
             section.appendChild(head);
 
-        // var animation = anime({
-        //     targets: "#titleDiv",
-        //     duration: 2500,
-        //     delay: 500,
-        //     easing: "easeInOutSine",
-        //     opacity: [0, 1],
-        //     translateX: ["-3rem", 0],
-        //     direction: "normal"
-        // });
+        var animation = anime({
+            targets: "#titleDiv",
+            duration: 2500,
+            delay: 500,
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+            translateX: ["-3rem", 0],
+            direction: "normal"
+        });
     })();
         
 
@@ -426,14 +426,14 @@
         var introBtnNo = document.getElementById("introDiv").getElementsByTagName("button")[1];
             introBtnNo.addEventListener("click", noAlert);
 
-        // var animation = anime({
-        //     targets: "#introDiv",
-        //     duration: 1000,
-        //     delay: 4000,
-        //     easing: "easeInOutSine",
-        //     opacity: [0, 1],
-        //     direction: "normal"
-        // });
+        var animation = anime({
+            targets: "#introDiv",
+            duration: 1000,
+            delay: 4000,
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+            direction: "normal"
+        });
 
     })();
 
