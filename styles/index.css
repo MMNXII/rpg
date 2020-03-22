@@ -22,7 +22,7 @@
   color: white;
 }
 
-#enterNameDiv input, .subHeadTxt {
+.statDescription, #enterNameDiv input, .subHeadTxt {
   font-family: general-text;
   font-size: 1.7em;
   color: white;
@@ -34,7 +34,7 @@
   background: linear-gradient(0deg, #d58400 0%, #883400 70%);
   border-color: #c56900;
   font-size: 1.2em;
-  color: white;
+  color: #ffffff;
   margin: 0.5em;
   padding: 0.3em;
 }
@@ -145,20 +145,56 @@ body {
 }
 
 #classDisplayDiv {
+  position: relative;
   margin: auto;
   height: 2px;
   max-width: 200px;
   border-radius: 5px;
   text-align: left;
-  background-color: #00af5277;
+  background-color: #005f2c;
+}
+
+.infoArrow {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-left: 10px;
+}
+
+.infoArrow:hover {
+  cursor: pointer;
 }
 
 .attribute {
+  font-family: cursive;
   font-style: bold;
   color: #ff751f;
   font-size: 1.2em;
   padding: 0.3em;
-  margin-left: 1.2em;
+  margin-left: 1.1em;
+}
+
+.attributeValues {
+  font-style: normal;
+}
+
+#statDiv {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0.5em;
+  width: 30px;
+  height: 30px;
+  background-color: #458a65;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.statDescription {
+  font-size: 1em;
+  margin: auto;
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */
