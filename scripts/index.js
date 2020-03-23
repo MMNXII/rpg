@@ -310,22 +310,51 @@
 
                             }    
     
-    
-                        var statDivAnime = anime({
-                            targets: statDiv,
-                            duration: 1000,
-                            width: "200px",
-                            translateX: [0,"12em"],
-                            height: "100px",
-                            direction: "normal",
+                        attrAnime = (x) => {
+                            var x = window.matchMedia("(max-width: 700px)");
+                            x.addListener(attrAnime);
 
-                        })
-                        var statTxtAnime = anime({
-                            targets: statDesc,
-                            duration: 1000,
-                            delay: 300,
-                            opacity: [0,1]
-                        })
+
+                            if (x.matches) {
+                                var statDivAnime = anime({
+                                    targets: statDiv,
+                                    duration: 1000,
+                                    width: "200px",
+                                    translateY: [0,"12em"],
+                                    height: "100px",
+                                    direction: "normal",
+        
+                                })
+                                var statTxtAnime = anime({
+                                    targets: statDesc,
+                                    duration: 1000,
+                                    delay: 300,
+                                    opacity: [0,1]
+                                })
+                                
+                            } else {
+                                var statDivAnime = anime({
+                                    targets: statDiv,
+                                    duration: 1000,
+                                    width: "200px",
+                                    translateX: [0,"12em"],
+                                    height: "100px",
+                                    direction: "normal",
+        
+                                })
+                                var statTxtAnime = anime({
+                                    targets: statDesc,
+                                    duration: 1000,
+                                    delay: 300,
+                                    opacity: [0,1]
+                                })
+            
+                            }
+
+                        }
+
+                        attrAnime();
+
 
                         section.appendChild(statDiv);
                         statDiv.appendChild(statDesc);
