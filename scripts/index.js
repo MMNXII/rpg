@@ -355,7 +355,6 @@
 
                         attrAnime();
 
-
                         section.appendChild(statDiv);
                         statDiv.appendChild(statDesc);
                     })
