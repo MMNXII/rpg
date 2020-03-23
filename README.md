@@ -2,7 +2,7 @@
 
 As a lifelong fan of fantasy RPGs, I wanted to honor the genre with my own web based application in reference to an actual RPG you'd play on PC or console.
 
-view project live: 
+view project live: rpg.matthewmneal.com
 
 to view locally: 1.) download zip file
 		 2.) extract folder inside zip file to somewhere on your computer
