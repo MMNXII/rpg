@@ -1,7 +1,5 @@
 (function() {
 
-    // var anime = require("anime");
-
     var container = document.getElementById("container");
     var section;
     var name;
