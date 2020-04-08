@@ -3,7 +3,6 @@ const rpg = (function () {
   let section;
   let name;
 
-
   const createDiv = (divClassId) => {
     section = document.createElement('div');
     section.id = divClassId;
@@ -47,7 +46,6 @@ const rpg = (function () {
     });
   };
 
-
   const showNameSection = () => {
     removeCurrentClassElements();
 
@@ -65,24 +63,27 @@ const rpg = (function () {
 
     section.appendChild(nameInput);
 
-
     createBtn(['Enter Name']);
-    const nameBtn = document.getElementById('enterNameDiv').getElementsByTagName('button')[0];
-    nameBtn.addEventListener('click', enterName = () => {
-      if (nameInput.value == '') {
-        return alert('please enter a name');
-      } if (nameInput.value.length < 2 || nameInput.value.length > 10) {
-        return alert('please enter a shorter name');
-      }
-      name = nameInput.value;
+    const nameBtn = document
+      .getElementById('enterNameDiv')
+      .getElementsByTagName('button')[0];
+    nameBtn.addEventListener(
+      'click',
+      (enterName = () => {
+        if (nameInput.value == '') {
+          return alert('please enter a name');
+        }
+        if (nameInput.value.length < 2 || nameInput.value.length > 10) {
+          return alert('please enter a shorter name');
+        }
+        name = nameInput.value;
 
-
-      classes();
-    });
+        classes();
+      }),
+    );
 
     fadeDownAnime('#enterNameDiv');
   };
-
 
   const classes = () => {
     removeCurrentClassElements();
@@ -103,27 +104,30 @@ const rpg = (function () {
     section.appendChild(subHeaderEl);
 
     createBtn(['Warrior', 'Hunter', 'Mage', 'Cleric']);
-    const classBtns = document.getElementById('classesDiv').getElementsByTagName('button');
+    const classBtns = document
+      .getElementById('classesDiv')
+      .getElementsByTagName('button');
 
     classBtns[0].id = 'warriorBtn';
     classBtns[1].id = 'hunterBtn';
     classBtns[2].id = 'mageBtn';
     classBtns[3].id = 'clericBtn';
 
-    section.addEventListener('click', selectClass = (btn) => {
-      if (btn.target.id == 'warriorBtn') {
-        showClass('warrior');
-      } else if (btn.target.id == 'hunterBtn') {
-        showClass('hunter');
-      } else if (btn.target.id == 'mageBtn') {
-        showClass('mage');
-      } else if (btn.target.id == 'clericBtn') {
-        showClass('cleric');
-      } else if (btn.target != btn) {
-
-
-      }
-    });
+    section.addEventListener(
+      'click',
+      (selectClass = (btn) => {
+        if (btn.target.id == 'warriorBtn') {
+          showClass('warrior');
+        } else if (btn.target.id == 'hunterBtn') {
+          showClass('hunter');
+        } else if (btn.target.id == 'mageBtn') {
+          showClass('mage');
+        } else if (btn.target.id == 'clericBtn') {
+          showClass('cleric');
+        } else if (btn.target != btn) {
+        }
+      }),
+    );
 
     const classesDiv = document.getElementById('classesDiv');
     section = createDiv('classesDescriptionDiv');
@@ -133,7 +137,12 @@ const rpg = (function () {
   };
 
   const showClass = (classSelection) => {
-    const addCurrentClassElements = (classHeader, classIcon, classDescription, classCreateBtn) => {
+    const addCurrentClassElements = (
+      classHeader,
+      classIcon,
+      classDescription,
+      classCreateBtn,
+    ) => {
       headerEl = document.createElement('p');
       headerEl.id = 'classesDescriptionTitle';
       headerEl.className = 'subHeadTxt';
@@ -157,7 +166,8 @@ const rpg = (function () {
 
       createBtn([classCreateBtn]);
 
-      const classSelect = document.getElementById('classesDescriptionTxt').nextSibling;
+      const classSelect = document.getElementById('classesDescriptionTxt')
+        .nextSibling;
       classSelect.addEventListener('click', enterClass);
 
       fadeDownAnime(section);
@@ -167,12 +177,16 @@ const rpg = (function () {
       const icon = 'images/sword.svg';
       const description = "Commonly seen on the front lines of battle, the mighty warrior is skilled in close quarters combat and brute force. Common weapons include two-handed swords, axes, and polearms. The warrior's main attribute is strength.";
       removeCurrentClassElements();
-      addCurrentClassElements('Warrior', icon, description, ['Select Warrior Class']);
+      addCurrentClassElements('Warrior', icon, description, [
+        'Select Warrior Class',
+      ]);
     } else if (classSelection == 'hunter') {
       const icon = 'images/bow.svg';
       const description = "Offering a wider skill set than warriors, hunters can attack from distance as well as close quarters. Common weapons include: ranged weapons, one-handed swords and daggers. The hunter's main attribute is agility.";
       removeCurrentClassElements();
-      addCurrentClassElements('Hunter', icon, description, ['Select Hunter Class']);
+      addCurrentClassElements('Hunter', icon, description, [
+        'Select Hunter Class',
+      ]);
     } else if (classSelection == 'mage') {
       const icon = 'images/orb.svg';
       const description = "Summoning the elements is the mage's specialty. A solely ranged attacker, the mage casts spells of various types to attack, as well as defend. Common spell types include: fire, ice, and illusion. the mage's main attribute is magic.";
@@ -182,7 +196,9 @@ const rpg = (function () {
       const icon = 'images/book.svg';
       const description = "A follower of a deity and a support spell caster. clerics are able to enhance it's parties attributes and abilities as well as hindering it's foes'. Common spell types include: healing, defense, and light. The cleric's main attribute is intuition.";
       removeCurrentClassElements();
-      addCurrentClassElements('Cleric', icon, description, ['Select Cleric Class']);
+      addCurrentClassElements('Cleric', icon, description, [
+        'Select Cleric Class',
+      ]);
     }
   };
 
@@ -241,96 +257,98 @@ const rpg = (function () {
     }
 
     (attrDescription = () => {
-      const arrow = document.getElementById('classDisplayDiv').getElementsByClassName('infoArrow');
+      const arrow = document
+        .getElementById('classDisplayDiv')
+        .getElementsByClassName('infoArrow');
       const arrowArray = Array.from(arrow);
 
-
       arrowArray.forEach((arr) => {
-        arr.addEventListener('mouseover', showStats = () => {
-          const arrAnime = anime({
-            targets: arr,
-            duration: 300,
-            easing: 'easeInOutSine',
-            opacity: [1, 0],
-            direction: 'alternate',
-          });
+        arr.addEventListener(
+          'mouseover',
+          (showStats = () => {
+            const arrAnime = anime({
+              targets: arr,
+              duration: 300,
+              easing: 'easeInOutSine',
+              opacity: [1, 0],
+              direction: 'alternate',
+            });
 
+            statDiv = document.createElement('div');
+            statDiv.id = 'statDiv';
 
-          statDiv = document.createElement('div');
-          statDiv.id = 'statDiv';
+            statDesc = document.createElement('p');
+            statDesc.className = 'statDescription';
 
-          statDesc = document.createElement('p');
-          statDesc.className = 'statDescription';
-
-          if (arr.id == '0') {
-            statDiv.style.bottom = '180px';
-            statDesc.textContent = "The player's vitality, it's what keeps them alive!";
-          } else if (arr.id == '1') {
-            statDiv.style.bottom = '150px';
-            statDesc.textContent = 'Enables the player to wield heavier weapons, and fight with fists!';
-          } else if (arr.id == '2') {
-            statDiv.style.bottom = '115px';
-            statDesc.textContent = 'Quickness and elusiveness, especially useful in battle';
-          } else if (arr.id == '3') {
-            statDiv.style.bottom = '80px';
-            statDesc.textContent = 'The Magic power within the player, used to cast spells';
-          } else if (arr.id == '4') {
-            statDiv.style.bottom = '45px';
-            statDesc.textContent = 'Gives the player awareness of their surroundings, provides an advtange in battle';
-          }
-
-          attrAnime = (x) => {
-            var x = window.matchMedia('(max-width: 700px)');
-            x.addListener(attrAnime);
-
-
-            if (x.matches) {
-              const statDivAnime = anime({
-                targets: statDiv,
-                duration: 1000,
-                width: '200px',
-                translateY: [0, '12em'],
-                height: '100px',
-                direction: 'normal',
-
-              });
-              const statTxtAnime = anime({
-                targets: statDesc,
-                duration: 1000,
-                delay: 300,
-                opacity: [0, 1],
-              });
-            } else {
-              const statDivAnime = anime({
-                targets: statDiv,
-                duration: 1000,
-                width: '200px',
-                translateX: [0, '12em'],
-                height: '100px',
-                direction: 'normal',
-
-              });
-              const statTxtAnime = anime({
-                targets: statDesc,
-                duration: 1000,
-                delay: 300,
-                opacity: [0, 1],
-              });
+            if (arr.id == '0') {
+              statDiv.style.bottom = '180px';
+              statDesc.textContent = "The player's vitality, it's what keeps them alive!";
+            } else if (arr.id == '1') {
+              statDiv.style.bottom = '150px';
+              statDesc.textContent = 'Enables the player to wield heavier weapons, and fight with fists!';
+            } else if (arr.id == '2') {
+              statDiv.style.bottom = '115px';
+              statDesc.textContent = 'Quickness and elusiveness, especially useful in battle';
+            } else if (arr.id == '3') {
+              statDiv.style.bottom = '80px';
+              statDesc.textContent = 'The Magic power within the player, used to cast spells';
+            } else if (arr.id == '4') {
+              statDiv.style.bottom = '45px';
+              statDesc.textContent = 'Gives the player awareness of their surroundings, provides an advtange in battle';
             }
-          };
 
-          attrAnime();
+            attrAnime = (x) => {
+              var x = window.matchMedia('(max-width: 700px)');
+              x.addListener(attrAnime);
 
-          section.appendChild(statDiv);
-          statDiv.appendChild(statDesc);
-        });
+              if (x.matches) {
+                const statDivAnime = anime({
+                  targets: statDiv,
+                  duration: 1000,
+                  width: '200px',
+                  translateY: [0, '12em'],
+                  height: '100px',
+                  direction: 'normal',
+                });
+                const statTxtAnime = anime({
+                  targets: statDesc,
+                  duration: 1000,
+                  delay: 300,
+                  opacity: [0, 1],
+                });
+              } else {
+                const statDivAnime = anime({
+                  targets: statDiv,
+                  duration: 1000,
+                  width: '200px',
+                  translateX: [0, '12em'],
+                  height: '100px',
+                  direction: 'normal',
+                });
+                const statTxtAnime = anime({
+                  targets: statDesc,
+                  duration: 1000,
+                  delay: 300,
+                  opacity: [0, 1],
+                });
+              }
+            };
 
-        arr.addEventListener('mouseout', removeStats = () => {
-          section.removeChild(statDiv);
-        });
+            attrAnime();
+
+            section.appendChild(statDiv);
+            statDiv.appendChild(statDesc);
+          }),
+        );
+
+        arr.addEventListener(
+          'mouseout',
+          (removeStats = () => {
+            section.removeChild(statDiv);
+          }),
+        );
       });
     })();
-
 
     fadeDownAnime(headerIcon);
 
@@ -372,7 +390,6 @@ const rpg = (function () {
     });
   };
 
-
   (title = () => {
     section = createDiv('titleDiv');
 
@@ -392,7 +409,6 @@ const rpg = (function () {
     });
   })();
 
-
   (intro = () => {
     section = createDiv('introDiv');
 
@@ -403,12 +419,15 @@ const rpg = (function () {
     introEl.textContent = introTxt;
     section.appendChild(introEl);
 
-
     createBtn(['Enter The Realm!', 'Nayeth!']);
-    const introBtnYes = document.getElementById('introDiv').getElementsByTagName('button')[0];
+    const introBtnYes = document
+      .getElementById('introDiv')
+      .getElementsByTagName('button')[0];
     introBtnYes.addEventListener('click', showNameSection);
 
-    const introBtnNo = document.getElementById('introDiv').getElementsByTagName('button')[1];
+    const introBtnNo = document
+      .getElementById('introDiv')
+      .getElementsByTagName('button')[1];
     introBtnNo.addEventListener('click', noAlert);
 
     const animation = anime({
@@ -427,12 +446,14 @@ const rpg = (function () {
     const srcsDiv = document.getElementById('sources');
     srcsDiv.appendChild(reset);
 
-    reset.addEventListener('click', reset = () => {
-      container.innerHTML = '';
-      title();
-      intro();
-    });
-
+    reset.addEventListener(
+      'click',
+      (reset = () => {
+        container.innerHTML = '';
+        title();
+        intro();
+      }),
+    );
 
     const animation = anime({
       targets: '#sources',
@@ -440,7 +461,6 @@ const rpg = (function () {
       delay: 4000,
       opacity: [0, 1],
       easing: 'easeInOutSine',
-
     });
   })();
 }());
